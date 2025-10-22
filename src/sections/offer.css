@@ -1,0 +1,90 @@
+/* Posters layout */
+.offer--posters { padding: 150px 16px; color:#fff; background:#0b0b0b; }
+
+.offer__grid--posters {
+  max-width: min(1200px, 96vw);
+  margin: 0 auto;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 700px) {
+  .offer__grid--posters { grid-template-columns: 1fr; }
+}
+
+.offer__poster {
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(6px, 2vw, 18px);
+}
+
+/* reuse your accent pink */
+:root{
+  --neon-pink: #ff0080;
+  --neon-green: #00ffa3; /* tweak to taste: #00ff99 or #00e5a8 also work */
+}
+
+/* Base neon for all offer posters (from Option 1) */
+.offer__poster {
+  border: 2px solid var(--neon-pink);
+  box-shadow: 0 0 12px rgba(255,0,128,.35);
+}
+
+/* 1) Women (left/first) = pink */
+.offer__grid--posters .offer__poster:nth-child(1) {
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 12px rgba(255,0,128,.35);
+}
+
+/* 2) Men (right/second) = green */
+.offer__grid--posters .offer__poster:nth-child(2) {
+  border-color: var(--neon-green);
+  box-shadow: 0 0 12px rgba(0,255,163,.35);
+}
+
+/* Optional: subtle hover pop */
+.offer__grid--posters .offer__poster:hover {
+  box-shadow:
+    0 0 14px currentColor,
+    0 0 30px color-mix(in srgb, currentColor 40%, transparent);
+}
+
+
+
+.offer__img {
+  display:block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;   /* keeps your poster uncropped */
+  aspect-ratio: 3 / 4;   /* common poster ratio; adjust if needed */
+}
+
+/* Headline fonts to match your theme (Orbitron/Sora) */
+.offer__title {
+  text-align: center;
+  font-family: "Orbitron","Sora",system-ui,sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-size: clamp(1.9rem, 4.2vw, 2.6rem);
+  margin: 0 0 8px;
+}
+
+.offer__subtitle {
+  text-align: center;
+  font-family: "Sora",system-ui,sans-serif;
+  font-weight: 500;
+  opacity: .9;
+  margin: 0 0 16px;
+}
+
+/* (Optional) remove spacing left over from old card layout if present */
+.offer__list, .offer__ctaRow, .offer__fineprint, .offer__policies { display: none !important; }

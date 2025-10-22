@@ -1,0 +1,170 @@
+/* Make sure the page is edge-to-edge */
+:root {
+  --hero-overlay: rgba(0, 0, 0, 0.4);
+  --accent: #ff0080;
+  --accent-ghost: rgba(255, 255, 255, 0.2);
+}
+
+.hero {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate; /* keep overlay effects contained */
+}
+
+/* Full-bleed background video */
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Darken the video so text is readable */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.25) 0%,
+      rgba(0,0,0,0.35) 40%,
+      rgba(0,0,0,0.6) 100%
+  );
+}
+
+/* Centered content */
+.hero__content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  padding: 0 20px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero__title {
+  font-family: "Orbitron", "Sora", system-ui, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;                 /* more “tech” */
+  font-size: clamp(2.4rem, 6vw, 4.5rem);  /* slightly bigger */
+  line-height: 1.08;
+  margin: 0 0 12px 0;
+  text-shadow: 0 2px 22px rgba(0,0,0,0.35);
+}
+
+.hero__subtitle {
+  font-family: "Sora", system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.05rem, 2.1vw, 1.3rem);
+  opacity: 0.95;
+  margin: 0 0 28px 0;
+}
+
+.hero__ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero__btn {
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease;
+  will-change: transform;
+}
+
+.hero__btn--primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.hero__btn--primary:hover {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.hero__btn--ghost {
+  background: var(--accent-ghost);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.35);
+}
+
+.hero__btn--ghost:hover {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Three videos side-by-side filling the hero */
+.hero__videoRow {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  /* Stacking order: videos lowest */
+  z-index: 0;
+}
+
+.hero__videoPanel {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* fill each third */
+  object-position: center;
+  display: block;
+}
+
+/* Overlay above videos, below content */
+.hero__overlay { z-index: 1; }
+
+/* Content already has z-index:1; bump it above overlay */
+.hero__content { z-index: 2; }
+
+/* Mobile: collapse to one video to save CPU/battery */
+@media (max-width: 768px) {
+  .hero__videoRow {
+    grid-template-columns: 1fr;
+  }
+  .hero__videoRow .hero__videoPanel:nth-child(n+2) {
+    display: none;
+  }
+}
+
+/* Top-right logo */
+.siteHeader {
+  position: absolute;
+  top: 5px;
+  left: 16px;
+  z-index: 3;             /* above overlay and videos */
+}
+
+.siteHeader__logo {
+  height: 150px;           /* adjust to taste */
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,.35));  /* readable over video */
+}
+
+/* Slightly smaller on small screens */
+@media (max-width: 640px) {
+  .siteHeader { top: 12px; left: 12px; }
+  .siteHeader__logo { height: 100px; }
+}
+
+
+
+/* Avoid white gaps on mobile notch devices */
+html, body, #root {
+  height: 100%;
+}

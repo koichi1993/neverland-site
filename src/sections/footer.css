@@ -1,0 +1,74 @@
+.footer {
+  background: rgba(255,255,255,.04);
+  color: #fff;
+  padding: 32px 16px 16px;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+
+.footer__inner {
+  max-width: min(1200px, 96vw);
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1.1fr 1fr 0.9fr; /* brand | map | info */
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .footer__inner { grid-template-columns: 1fr; }
+}
+
+.footer__logo { height: 140px; width: auto; display: block; }
+.footer__tagline { margin: 8px 0 10px; opacity: .9; }
+
+.footer__social { display: flex; gap: 10px; }
+.footer__ig {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.28);
+  background: rgba(255,255,255,.1);
+  color: #fff; text-decoration: none;
+}
+.footer__ig:hover { background: rgba(255,255,255,.18); }
+
+.footer__mapFrame {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  aspect-ratio: 16 / 9;
+}
+.footer__mapFrame iframe { width: 100%; height: 100%; border: 0; }
+
+.footer__directions {
+  display: inline-block; margin-top: 8px;
+  color: #fff; opacity: .9; text-decoration: underline;
+}
+
+.footer__info h4 { margin: 0 0 8px; font-size: 1.05rem; }
+.footer__info p { margin: 6px 0; opacity: .95; }
+.footer__info a { color: #fff; text-decoration: underline; }
+
+.footer__bottom {
+  max-width: min(1200px, 96vw);
+  margin: 16px auto 0;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(255,255,255,.15);
+  text-align: center;
+  opacity: .8;
+  font-size: .95rem;
+}
+
+.footer__ig { 
+  display:inline-flex; align-items:center; justify-content:center;
+  width:40px; height:40px; border-radius:999px;
+  border:1px solid rgba(255,255,255,.28);
+  background: rgba(255,255,255,.1);
+}
+.footer__ig:hover { background: rgba(255,255,255,.18); }
+
+.footer__igIcon { 
+  width:20px; height:20px; display:block;
+  /* optional: make light-on-dark if your SVG is black */
+  filter: invert(1);
+}

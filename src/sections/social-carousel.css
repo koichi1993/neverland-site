@@ -1,0 +1,96 @@
+.socialc { background:#0b0b0b; color:#fff; padding:150px 16px; }
+.socialc__title {
+  text-align: center;
+  font-family: "Orbitron", "Sora", system-ui, sans-serif;
+  /* optional for techno feel: */
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: clamp(1.6rem, 4.5vw, 3rem);
+  line-height: 1.1;
+}
+
+.socialc__subtitle {
+  text-align: center;
+  font-family: "Sora", system-ui, sans-serif;
+  font-weight: 500;      /* a touch bolder reads better on dark */
+  letter-spacing: 0.02em;/* optional */
+}
+
+
+.socialc__viewport {
+  position:relative;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow:hidden;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  /* Set a consistent height so messages aren't cut off */
+  height: clamp(220px, 36vh, 380px);
+}
+
+.socialc__track {
+  display:flex;
+  width:100%;
+  height:100%;
+  transition: transform 420ms ease;
+}
+
+.socialc__slide {
+  min-width:100%;
+  height:100%;
+  position:relative;
+  display:flex;
+  place-items:center;
+  align-items: center;     /* ← add */
+  justify-content: center; /* ← add */
+  padding:10px;
+  margin: 0; 
+}
+
+.socialc__img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;            /* keep natural aspect ratio */
+  height: auto;           /* no forced square crop */
+  object-fit: contain;    /* avoid cutting text in screenshots */
+  display:block;
+  margin: 0 auto;
+}
+
+.socialc__badge {
+  position:absolute;
+  left:10px; bottom:10px;
+  background:rgba(0,0,0,.55);
+  border:1px solid rgba(255,255,255,.25);
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:.85rem;
+  backdrop-filter: blur(6px);
+}
+
+.socialc__nav {
+  position:absolute;
+  top:50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,.55);
+  border:1px solid rgba(255,255,255,.3);
+  color:#fff;
+  width:38px; height:38px;
+  border-radius:999px;
+  cursor:pointer;
+}
+.socialc__nav--prev { left:10px; }
+.socialc__nav--next { right:10px; }
+.socialc__nav:hover { background: rgba(0,0,0,.7); }
+
+.socialc__dots {
+  display:flex; gap:8px; justify-content:center;
+  margin-top: 10px;
+}
+.socialc__dot {
+  width:8px; height:8px; border-radius:50%;
+  border:1px solid rgba(255,255,255,.6);
+  background: transparent; cursor:pointer;
+}
+.socialc__dot.is-active { background:#ff0080; border-color:#ff0080; }

@@ -1,0 +1,99 @@
+.aboutX {
+  background: #0b0b0b;
+  color: #fff;
+  padding: 150px 16px;
+}
+
+.aboutX__inner {
+  max-width: min(1200px, 96vw);
+  margin: 0 auto;
+  display: grid;
+  gap: 22px;
+  grid-template-columns: 1.1fr 1fr; /* text a tad wider than image */
+  align-items: center;
+}
+
+/* Make Sora the default for this section */
+.aboutX { font-family: "Sora", system-ui, sans-serif; }
+
+/* Title in Orbitron */
+.aboutX__title {
+  font-family: "Orbitron", "Sora", system-ui, sans-serif;
+  text-transform: uppercase;   /* optional techno touch */
+  letter-spacing: 0.06em;      /* optional tracking */
+}
+
+/* (Optional) Slightly bolder list text for punch */
+.aboutX__proof { font-family: "Sora", system-ui, sans-serif; }
+.aboutX__proof li { font-weight: 600; letter-spacing: 0.01em; }
+.aboutX__title { font-size: clamp(2rem, 4vw, 2.8rem); }
+
+
+@media (max-width: 900px) {
+  .aboutX__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+.aboutX__text {
+  max-width: 56ch;
+}
+
+.aboutX__title {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  margin: 0 0 10px;
+}
+
+.aboutX__lead {
+  font-size: clamp(1rem, 2.1vw, 1.1rem);
+  line-height: 1.6;
+  margin: 0 0 12px;
+  opacity: 0.95;
+}
+
+.aboutX__body {
+  margin: 0 0 14px;
+  opacity: 0.9;
+}
+
+.aboutX__proof {
+  margin: 12px 0 18px;
+  padding-left: 18px;
+}
+.aboutX__proof li { margin: 6px 0; }
+
+.aboutX__ctaRow {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.aboutX__cta {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+.aboutX__cta--primary { background: #ff0080; }
+.aboutX__cta--ghost { background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.35); }
+.aboutX__cta:hover { transform: translateY(-1px); }
+
+.aboutX__media {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+}
+
+.aboutX__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 4 / 3; /* adjust if your image is taller */
+}

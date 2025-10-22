@@ -1,0 +1,86 @@
+.epx { background:#0b0b0b; color:#fff; padding:48px 0; }
+.epx { font-family: "Sora", system-ui, sans-serif; }
+.epx__title { text-align:center; font-size:clamp(1.8rem,3.5vw,2.4rem); margin:0 0 16px; padding:0 16px; }
+.epx__title {
+  font-family: "Orbitron", "Sora", system-ui, sans-serif;
+  text-transform: uppercase;      /* optional, but on-brand */
+  letter-spacing: 0.06em;         /* optional tracking */
+  /* keep your existing font-size, margin, etc. */
+}
+.epx__title { font-size: clamp(2rem, 4.5vw, 3rem); }
+
+.epx__toggle {
+  font-family: "Orbitron", "Sora", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* Grids */
+.epx__grid {
+  width:100%; max-width:min(1200px, 96vw);
+  margin:0 auto;
+  display:grid; gap:16px;
+}
+.epx__grid--first {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.epx__grid--more {
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
+}
+
+/* Cards & images */
+.epx__card {
+  position:relative; margin:0; overflow:hidden;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.04);
+  display:flex; align-items:center; justify-content:center;
+  padding: clamp(6px, 2vw, 18px);
+}
+.epx__img {
+  max-width:100%; max-height:100%;
+  width:auto; height:auto;
+  object-fit:contain; display:block;
+  aspect-ratio: 3/4; /* common poster ratio; adjust if yours differ */
+}
+.epx__cta {
+  position:absolute; left:50%; bottom: clamp(8px, 2.5vw, 20px);
+  transform: translateX(-50%);
+  display:flex; gap:10px; flex-wrap:wrap;
+}
+
+/* Toggle area (collapsible) */
+.epx__more {
+  overflow:hidden;
+  max-height:0;
+  transition:max-height 380ms ease;
+}
+.epx__more.is-open {
+  max-height: 2000px; /* big enough to reveal all; adjust if needed */
+}
+
+/* Toggle button */
+.epx__toggleWrap { display:flex; justify-content:center; margin-top:12px; }
+.epx__toggle {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(255,255,255,.12);
+  color:#fff; border:1px solid rgba(255,255,255,.28);
+  border-radius:999px; padding:10px 14px; cursor:pointer;
+}
+.epx__arrow {
+  width:0; height:0; display:inline-block;
+  border-left:6px solid transparent; border-right:6px solid transparent;
+}
+.epx__arrow.down { border-top:8px solid #fff; }
+.epx__arrow.up   { border-bottom:8px solid #fff; }
+
+/* Buttons */
+.btn { padding:12px 18px; border-radius:999px; border:1px solid transparent; text-decoration:none; cursor:pointer; }
+.btn--primary { background:#ff0080; color:#fff; }
+.btn--ghost { background:rgba(255,255,255,.15); color:#fff; border-color:rgba(255,255,255,.35); }
+.btn:hover { transform: translateY(-1px); transition:.15s; }
+
+/* Responsive: stack first row on small screens */
+@media (max-width: 640px) {
+  .epx__grid--first { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,80 @@
+.galX { background:#0b0b0b; color:#fff; padding:150px 16px; }
+.galX__title { text-align:center; font-size:clamp(1.6rem,3.5vw,2.2rem); margin-bottom:16px; }
+
+/* 4-per-row grid on desktop, responsive down on smaller screens */
+.galX__grid {
+  max-width:min(1200px,96vw);
+  margin:0 auto;
+  display:grid; gap:10px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* Make Sora the default for this section */
+.galX { font-family: "Sora", system-ui, sans-serif; }
+
+/* Title in Orbitron for the techno vibe */
+.galX__title {
+  font-family: "Orbitron", "Sora", system-ui, sans-serif;
+  text-transform: uppercase;   /* optional */
+  letter-spacing: 0.06em;      /* optional */
+}
+
+.galX__title { font-size: clamp(1.9rem, 4.2vw, 2.6rem); }
+
+
+/* “Show more” button matches the title */
+.galX__toggle {
+  font-family: "Orbitron", "Sora", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+
+@media (max-width: 1024px) {
+  .galX__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .galX__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.galX__card {
+  position:relative; margin:0; overflow:hidden;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.05);
+}
+
+/* Square thumbs keep rows aligned */
+.galX__img {
+  display:block; width:100%; height:100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform .25s ease, opacity .25s ease;
+}
+.galX__card:hover .galX__img { transform: scale(1.02); opacity:.95; }
+
+/* Collapsible area */
+.galX__more {
+  overflow:hidden;
+  max-height:0;
+  transition:max-height 380ms ease;
+  margin-top:10px;
+}
+.galX__more.is-open {
+  max-height: 4000px; /* plenty for many rows; adjust if you like */
+}
+
+/* Toggle button */
+.galX__toggleWrap { display:flex; justify-content:center; margin-top:12px; }
+.galX__toggle {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(255,255,255,.12);
+  color:#fff; border:1px solid rgba(255,255,255,.28);
+  border-radius:999px; padding:10px 14px; cursor:pointer;
+}
+.galX__arrow {
+  width:0; height:0; display:inline-block;
+  border-left:6px solid transparent; border-right:6px solid transparent;
+}
+.galX__arrow.down { border-top:8px solid #fff; }
+.galX__arrow.up   { border-bottom:8px solid #fff; }
