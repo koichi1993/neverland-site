@@ -81,6 +81,17 @@
 .btn:hover { transform: translateY(-1px); transition:.15s; }
 
 /* Responsive: stack first row on small screens */
+/* Mobile: make BOTH rows single-column */
 @media (max-width: 640px) {
-  .epx__grid--first { grid-template-columns: 1fr; }
+  .epx__grid--first,
+  .epx__grid--more {
+    grid-template-columns: 1fr;
+  }
 }
+@media (max-width: 768px) {
+  .epx__grid--first,
+  .epx__grid--more {
+    grid-template-columns: 1fr;
+  }
+}
+
